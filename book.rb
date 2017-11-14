@@ -22,4 +22,8 @@ class Book < Product
     @title = array[0]
     @author = array[1]
   end
+
+  def display
+    return "Название Книги: #{@title}, Автор #{author} - #{@price} [кол. #{@quantity},шт.]"
+  end
 end

@@ -22,4 +22,7 @@ class Album < Product
     @song_writer = array[1]
     @music_style = array[2]
   end
+  def display
+    return "Название фильма: #{@title}, Автор. #{@song_writer} (стиль - #{@music_style}) - #{@price} [кол. #{@quantity},шт.]"
+  end
 end

@@ -2,7 +2,8 @@
 class Film < Product
   def initialize(title,quantity,price)
     super
-
+    #@director = ""
+   # @premiere = ""
   end
 
   def update_info
@@ -22,5 +23,9 @@ class Film < Product
     @title = array[0]
     @director = array[1]
     @premiere = array[2]
+  end
+
+  def display
+    return "Название фильма: #{@title}, Реж. #{@director} (#{@premiere}) - #{@price} [кол. #{@quantity},шт.]"
   end
 end

@@ -29,4 +29,8 @@ class Product
       puts "Стиль музыки: " + @music_style
     end
   end
+
+  def display
+
+  end
 end
