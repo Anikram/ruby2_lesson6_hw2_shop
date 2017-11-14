@@ -1,4 +1,7 @@
 #encoding: utf-8
+# Программа - Онлайн Магазн
+# version: 0.6
+# by Anikram
 #git config core.autocrlf true - cure Unix - Windows ending of files trouble
 #####
 
@@ -42,8 +45,24 @@ catalog = catalog + books
 #catalog << "\n ---------------------\n Каталог Музыки: "
 catalog += albums
 
-Product.catalog(catalog)
+user_input = nil
+while user_input != "x" do
+  Product.catalog(catalog)
+  puts "Хотите что-то купить? (Y/N)"
+  user_input = STDIN.gets.downcase.chomp
+  if user_input == "y"
 
-Product.buy(catalog)
+    Product.buy(catalog)
+  else
+    puts "Хотите выйти?(Y/N)"
+    user_input = STDIN.gets.downcase.chomp
+    if user_input == "y"
+      break
+    end
+  end
+end
+
+puts "Спасибо, что воспользовались нашими услугами!"
+
 
 
