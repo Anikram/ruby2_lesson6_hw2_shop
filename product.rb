@@ -1,18 +1,12 @@
 class Product
   def self.catalog(array) #статический метод, который показывает весь ассортимент
-    number = 1
+
     puts "\n ---------------------\n Ассортимент товара: \n ---------------------\n"
-    for item in array do
-      puts "#{number}. #{item.display}"
-      number += 1
+    array.each_with_index do |product, index|
+      puts "#{index+1}. #{product.display}"
+
     end
     puts "----------------------\n"
-    #puts "Хотите что-то купить? (Y/N)"
-   # user_input = STDIN.gets.downcase.chomp
-    #if user_input=="y"
-    #      Product.buy(array)
-    #end
-
   end
 
   def initialize(quantity, price) #поставим в качестве параметров инициализации значения которые есть у всех суб-классов -
@@ -24,6 +18,10 @@ class Product
     @price
   end
 
+  def update
+
+  end
+
   def amount
     @amount_available
   end
@@ -31,11 +29,6 @@ class Product
   def change_amount(i)
     @amount_available -= i
   end
-
-  def update
-
-  end
-
   def info
 
   end
@@ -46,7 +39,7 @@ class Product
 
   def self.buy(catalog)
     puts 'Какой товар вы хотите приобрести?'
-    user_input = nil
+
     flag = 0 # флаг условия выхода из безконечно цикла запроса ввода
 
     while flag == 0 do
