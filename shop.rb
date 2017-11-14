@@ -1,6 +1,6 @@
 #encoding: utf-8
 # Программа - Онлайн Магазн
-# version: 0.6
+# version: 0.7
 # by Anikram
 #git config core.autocrlf true - cure Unix - Windows ending of files trouble
 #####
@@ -61,8 +61,9 @@ while user_input != "x" do
     end
   end
 end
-
+puts "С вас #{$the_bank} рублей."
 puts "Спасибо, что воспользовались нашими услугами!"
+
 
 
 
