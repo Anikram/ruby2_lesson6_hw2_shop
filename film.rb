@@ -8,11 +8,11 @@ class Film < Product
   end
 
   def info
-  "Фильм \"#{@title}\", реж. #{@director_name} (#{@year})"
+    return "Название фильма: \"#{@title}\", реж. #{@director_name} (#{@year})"
   end
 
-  def display
-    return "Название фильма: \"#{@title}\", реж. #{@director_name} (#{@year})"
+ # def display
+
   # в родительском классе уже указан вывод цены и коллчества - тут не повторяется
-  end
+  #end
 end

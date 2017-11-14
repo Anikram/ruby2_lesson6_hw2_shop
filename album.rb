@@ -6,7 +6,7 @@ class Album < Product
     @artist_name = options[:artist_name]
     @genre = options[:genre]
   end
-  def display
+  def info
     return "Название Альбома: #{@album_name} -  #{@artist_name} (стиль - #{@genre})"
   end
 end

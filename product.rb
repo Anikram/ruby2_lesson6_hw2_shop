@@ -1,12 +1,12 @@
 class Product
   def self.catalog(array) #статический метод, который показывает весь ассортимент
+    number = 1
+    puts "\n ---------------------\n Ассортимент товара: \n ---------------------\n"
     for item in array do
-      if item.class == "String"
-        puts item
-      else
-        puts item.display
-      end
+      puts "#{number}. #{item.display}"
+      number += 1
     end
+    puts "----------------------\n"
   end
 
   def initialize(quantity, price) #поставим в качестве параметров инициализации значения которые есть у всех суб-классов -
@@ -27,6 +27,8 @@ class Product
   end
 
   def display
-  "#{info} - #{price} руб. [осталось: #{@amount_available}]"
+   return "#{info} - #{price} руб. [осталось: #{@amount_available}]"
   end
+
+
 end
