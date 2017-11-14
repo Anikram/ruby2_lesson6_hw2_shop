@@ -1,4 +1,5 @@
 #encoding: utf-8
+#git config core.autocrlf true - cure Unix - Windows ending of files trouble
 
 if (Gem.win_platform?)
   Encoding.default_external = Encoding.find(Encoding.locale_charmap)
