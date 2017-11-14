@@ -9,4 +9,6 @@ class Book < Product
   def info
     return "Название Книги: \"#{@title}\", Автор #{@author_name} " # цена и количество в родительском классе
   end
+
+
 end

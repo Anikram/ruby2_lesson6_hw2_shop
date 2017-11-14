@@ -9,4 +9,6 @@ class Album < Product
   def info
     return "Название Альбома: #{@album_name} -  #{@artist_name} (стиль - #{@genre})"
   end
+
+
 end

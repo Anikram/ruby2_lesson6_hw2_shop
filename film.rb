@@ -11,6 +11,8 @@ class Film < Product
     return "Название фильма: \"#{@title}\", реж. #{@director_name} (#{@year})"
   end
 
+
+
  # def display
 
   # в родительском классе уже указан вывод цены и коллчества - тут не повторяется

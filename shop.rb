@@ -19,6 +19,7 @@ require_relative "album.rb"
 films = [] # МАССИВЫ для хранения товаров
 albums = []
 books = []
+$the_bank = 0
 
 films[0] = Film.new(23, 299) #загружаем несколько фильмов в базу
 films[0].update(:title => 'Леон', :director_name => 'Люк Бессон', :year => '1994')
@@ -42,4 +43,7 @@ catalog = catalog + books
 catalog += albums
 
 Product.catalog(catalog)
+
+Product.buy(catalog)
+
 
