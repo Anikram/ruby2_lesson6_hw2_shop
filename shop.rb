@@ -31,19 +31,15 @@ albums[0].update(:album_name => 'Yellow brick wall', :artist_name => 'Beatles', 
 books[0] = Book.new(13, 699)
 books[0].update(:title => "Том Сойер", :author_name => "Чарльз Диккенс")
 
+catalog = []
 
-puts "\n ---------------------\n\t Ассортимент товара:"
-puts "\n ---------------------\n Каталог фильмов: "
-for film in films do
-    puts film.display
-end
-puts "\n ---------------------\n Каталог Книг: "
-for book in books do
-  puts book.display
-end
-puts "\n ---------------------\n Каталог Музыки: "
-for album in albums do
-  puts album.display
-end
+catalog << "\n ---------------------\n Ассортимент товара:"
+catalog << "\n ---------------------\n Каталог фильмов: "
+catalog = catalog + films
+catalog << "\n ---------------------\n Каталог Книг: "
+catalog = catalog + books
+catalog << "\n ---------------------\n Каталог Музыки: "
+catalog += albums
 
+Product.catalog(catalog)
 
