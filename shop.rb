@@ -18,32 +18,15 @@ require_relative "product.rb" # Подключаем классы
 require_relative "book.rb"
 require_relative "film.rb"
 require_relative "album.rb"
+require "rexml/document"
+#require 'date'
 
-films = [] # МАССИВЫ для хранения товаров
-albums = []
-books = []
+current_path = File.dirname(__FILE__)
+file_name = current_path + "/data/base.xml"
+
 $the_bank = 0
 
-films[0] = Film.new(23, 299) #загружаем несколько фильмов в базу
-films[0].update(:title => 'Леон', :director_name => 'Люк Бессон', :year => '1994')
-films[1] = Film.new(2, 799)
-films[1].update(:title => 'Пираты карибского моря', :director_name => 'Коффин', :year => '2001')
-films[2] = Film.new(5, 499)
-films[2].update(:title => 'Джумаджи', :director_name => 'Роберт Земекис', :year => '1996')
-albums[0] = Album.new(10, 1200)
-albums[0].update(:album_name => 'Yellow brick wall', :artist_name => 'Beatles', :genre => 'Psychodelic rock')
-books[0] = Book.new(13, 699)
-books[0].update(:title => "Том Сойер", :author_name => "Чарльз Диккенс")
-
-catalog = []
-
-#catalog << "\n ---------------------\n Ассортимент товара:"
-#catalog << "\n ---------------------\n Каталог фильмов: "
-catalog = catalog + films
-#catalog << "\n ---------------------\n Каталог Книг: "
-catalog = catalog + books
-#catalog << "\n ---------------------\n Каталог Музыки: "
-catalog += albums
+catalog = Product.read_from_xml(file_name)
 
 user_input = nil
 while user_input != "x" do

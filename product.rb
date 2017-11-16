@@ -29,6 +29,7 @@ class Product
   def change_amount(i)
     @amount_available -= i
   end
+
   def info
 
   end
@@ -48,8 +49,8 @@ class Product
 
       if catalog[user_input]
         flag = 1
-
-        if catalog[user_input].amount >= 0
+puts catalog[user_input].amount
+        if catalog[user_input].amount.to_i >= 0
           $the_bank = $the_bank + catalog[user_input].price.to_i #считаем выручку
 
           catalog[user_input].change_amount(1) #изменяем количество товара на складе
@@ -69,4 +70,45 @@ class Product
     end
   end
 
+  def self.read_from_xml(file_name)
+
+    unless File.exist?(file_name)
+      abort("File #{file_name} не найден")
+    end
+
+
+    file = File.new(file_name)
+    doc = REXML::Document.new(file)
+    file.close
+
+    result =[]
+
+    doc.elements.each("catalog/films/film") do |item|
+      doc_amount = item.attributes["amount"].to_i
+      doc_price = item.attributes["price"].to_i
+
+      film = Film.new(doc_amount, doc_price)
+      film.update(title: item.attributes["title"], director_name: item.attributes["director"], year: item.attributes["year"])
+      result.push(film)
+    end
+    doc.elements.each("catalog/books/book") do |item|
+      doc_amount = item.attributes["amount"].to_i
+      doc_price = item.attributes["price"].to_i
+
+      book = Book.new(doc_amount, doc_price)
+      book.update(title: item.attributes["title"], director_name: item.attributes["author_name"])
+      result.push(book)
+    end
+    doc.elements.each("catalog/albums/album") do |item|
+      doc_amount = item.attributes["amount"].to_i
+      doc_price = item.attributes["price"].to_i
+
+      album = Film.new(doc_amount, doc_price)
+      album.update(title: item.attributes["title"], director_name: item.attributes["artist_name"], year: item.attributes["genre"])
+      result.push(album)
+    end
+
+    return result
+
+  end
 end

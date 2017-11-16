@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<catalog>
+
+  <films>
+    <film title="Джуманджи" director="Джо Джонстон" year="1995" amount="23" price="399"></film>
+    <film title="Чужой" director="Риддли Скотт" year="1979" amount="23" price="399"></film>
+    <film title="Мальчик на троих" director="Николаус Гуссен" year="2006" amount="23" price="399"></film>
+  </films>
+  /!--------------/
+  <albums>
+    <album title="The One" artist_name="Sum 41" genre="Punk-Rock" amount="23" price="399"></album>
+    <album title="Music" artist_name="Madonna" genre="2001" amount="23" price="399"></album>
+    <album title="Happy" artist_name="Pharell Williams" genre="2012" amount="23" price="399"></album>
+  </albums>
+  /!--------------/
+  <books>
+    <book title="Гарри Поттер" author_name="Джоана Дж. Роулинг" amount="23" price="399"></book>
+    <book title="Властелин Колец" author_name="Толкиен" amount="23" price="399"></book>
+    <book title="Том Сойер" author_name="Чарльз Диккенс" amount="23" price="399"></book>
+  </books>
+
+</catalog>
